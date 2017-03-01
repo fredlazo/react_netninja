@@ -6,10 +6,17 @@ var TodoComponent = React.createClass({
   getInitialState: function(){
     return {
       todos: ['Eat', 'Sleep', 'Poop'],
-      food: ['Bacon', 'Donuts', 'Butter']
+      food: ['Bacon', 'Donuts', 'Butter'],
+      age: 44
     }
   },
   render: function(){
+    var moreFood = setTimeout(function(){
+      this.setState({
+        food: ['Bacon', 'Donuts', 'Fried Chicken']
+      });
+    }.bind(this),5000);
+
     return (
       <div>
       <p>My To Do List</p>
