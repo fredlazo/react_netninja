@@ -11,27 +11,29 @@ var TodoComponent = React.createClass({
     }
   },
   render: function(){
-    var moreFood = setTimeout(function(){
-      this.setState({
-        food: ['Bacon', 'Donuts', 'Fried Chicken']
+    var todos = this.state.todos;
+    var food = this.state.food;
+    todos = todos.map(function(item, index){
+      return (
+        <li>{item}</li>
+        );
       });
-    }.bind(this),5000);
+      food = food.map(function(item, index){
+        return (
+          <li>{item}</li>
+        );
+      });
 
     return (
       <div>
-      <p>My To Do List</p>
-      <ul>
-        <li>{this.state.todos[0]}</li>
-        <li>{this.state.todos[1]}</li>
-        <li>{this.state.todos[2]}</li>
-      </ul>
-      <p>My To Eat List</p>
-      <ul>
-        <li>{this.state.food[0]}</li>
-        <li>{this.state.food[1]}</li>
-        <li>{this.state.food[2]}</li>
-      </ul>
-
+        <p>My To Do List</p>
+        <ul>
+          {todos}
+        </ul>
+        <p>My To Eat List</p>
+        <ul>
+          {food}
+        </ul>
       </div>
     );
   }
