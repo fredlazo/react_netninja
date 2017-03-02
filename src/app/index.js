@@ -6,21 +6,13 @@ var TodoComponent = React.createClass({
   getInitialState: function(){
     return {
       todos: ['Eat', 'Sleep', 'Poop'],
-      food: ['Bacon', 'Donuts', 'Butter'],
-      age: 44
     }
   },
   render: function(){
     var todos = this.state.todos;
-    var food = this.state.food;
     todos = todos.map(function(item, index){
       return (
-        <li>{item}</li>
-        );
-      });
-      food = food.map(function(item, index){
-        return (
-          <li>{item}</li>
+          <TodoItem item={item} key={index}/>
         );
       });
 
@@ -30,14 +22,23 @@ var TodoComponent = React.createClass({
         <ul>
           {todos}
         </ul>
-        <p>My To Eat List</p>
-        <ul>
-          {food}
-        </ul>
       </div>
     );
   }
 });
 
+//TodoItemComponent
+var TodoItem = React.createClass({
+  render: function(){
+    return(
+      <li>
+        <div className = 'todo-item'>
+          <span className = 'item-name'>{this.props.item}</span>
+        </div>
+      </li>
+    );
+  }
+});
+
 //Put component into html page
-ReactDOM.render(<TodoComponent/>, document.getElementById('todo-wrapper'));
+ReactDOM.render(<TodoComponent></TodoComponent>, document.getElementById('todo-wrapper'));
