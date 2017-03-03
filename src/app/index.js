@@ -1,5 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+require('./css/index.css')
+
+
+//Module requires
+var TodoItem = require('./todoItem');
 
 /*
 Todo Component
@@ -8,11 +13,11 @@ Todo Component
   3. Events
 */
 var TodoComponent = React.createClass({
-  getInitialState: function(){
-    return {
-      todos: ['Eat', 'Sleep', 'Poop', 'Pee', 'Fart', 'Code'],
-    }
-  },
+    getInitialState: function(){
+        return {
+            todos: ['Eat', 'Sleep', 'Poop', 'Pee', 'Fart', 'Code'],
+        }
+    },
 
 /**************************
 render:  function(){
@@ -40,12 +45,12 @@ render:  function(){
 /***************************/
     //THIS HTML IS CREATED.
     return (
-      <div id="todo-list">
-        <p>My To Do List</p>
-          <ul>
-            {todos}
-          </ul>
-      </div>
+        <div id="todo-list">
+            <p>My To Do List</p>
+            <ul>
+                {todos}
+            </ul>
+        </div>
     );
   }, //End of render function
 
@@ -61,28 +66,6 @@ render:  function(){
 });
 
 /************End of TodoComponent*****************/
-
-//TodoItem Component
-// this. (TodoItem Component) has a props item={item} equal to
-//'Eat' or 'Sleep' etc.
-var TodoItem = React.createClass({
-  render: function(){
-    return(
-      <li>
-        <div className = 'todo-item'>
-          <span className = 'item-name'>{this.props.item}</span>
-          <span className = 'item-delete' onClick = {this.handleDelete}> x </span>
-        </div>
-      </li>
-    );
-  },
-
-//Custom functions
-  handleDelete: function(){
-    this.props.onDelete(this.props.item);
-  }
-
-});
 
 //Put component into html page
 ReactDOM.render(<TodoComponent></TodoComponent>, document.getElementById('todo-wrapper'));
