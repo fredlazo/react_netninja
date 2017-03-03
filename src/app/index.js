@@ -5,6 +5,7 @@ require('./css/index.css')
 
 //Module requires
 var TodoItem = require('./todoItem');
+var AddItem = require('./addItem');
 
 /*
 Todo Component
@@ -50,19 +51,28 @@ render:  function(){
             <ul>
                 {todos}
             </ul>
+            <AddItem onAdd={this.onAdd}/>
         </div>
     );
   }, //End of render function
 
   //Custom functions
-  onDelete: function(item){
-    var updatedTodos = this.state.todos.filter(function(val,index){
-      return item !== val;
-    });
-    this.setState({
-      todos: updatedTodos
-    });
-  }
+      onDelete: function(item){
+        var updatedTodos = this.state.todos.filter(function(val,index){
+          return item !== val;
+        });
+        this.setState({
+          todos: updatedTodos
+        });
+    },
+
+    onAdd: function(item){
+        var updatedTodos = this.state.todos;
+        updatedTodos.push(item);
+        this.setState({
+            todos: updatedTodos
+        })
+    }  
 });
 
 /************End of TodoComponent*****************/
