@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 require('./css/index.css');
-import{Router, Route, browserHistory} from 'react-router';
+import{Router, Route, browserHistory, Link} from 'react-router';
 
 
 //Module requires
@@ -60,6 +60,7 @@ render:  function(){
     //THIS HTML IS CREATED.
     return (
         <div id="todo-list">
+            <Link to={'/about'}>About</Link>
             <p>My To Do List</p>
             <ul>
                 {todos}
