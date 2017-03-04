@@ -72,7 +72,19 @@ render:  function(){
         this.setState({
             todos: updatedTodos
         })
-    }  
+    },
+
+    componentWillMount: function(){
+        console.log('componentWillMount');
+    },
+    componentDidMount: function(){
+        console.log('componentDidMount');
+    },
+    componentWillUpdate: function(){
+        console.log('componentWillUpdate');
+    }
+
+
 });
 
 /************End of TodoComponent*****************/
