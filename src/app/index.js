@@ -33,6 +33,12 @@ render:  function(){
     todos = todos.map(function(item, index){
         return (
             <TodoItem item={item} key={index} onDelete={this.onDelete}/> //Put component into html page
+            /*
+            Clicking fires this function...
+              handleDelete: function(){
+                this.props.onDelete(this.props.item);
+              }
+            */
           );
       }.bind(this));
 
